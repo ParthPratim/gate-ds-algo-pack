@@ -7,7 +7,11 @@ int main(){
     int n = s.length();
     int m = t.length();
 
-    vector<vector<int>> dp(n+1, vector<int>(m+1));
+    int ** dp = (int**) malloc((n+1) * sizeof(int*));
+    for(int i = 0 ; i < n+1; i++){
+        dp[i] = (int*) malloc((m+1) * sizeof(int));
+    }
+
 
     for(int i = n-1; i >= 0 ; i--){
         for(int j = m-1; j >=0 ; j--){
