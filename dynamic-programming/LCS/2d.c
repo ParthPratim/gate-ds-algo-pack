@@ -1,11 +1,16 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define max(a,b) (a>b ? a : b)
 
 int main(){
-    string s , t;
-    cin >> s >> t;
-    int n = s.length();
-    int m = t.length();
+    char s[100] , t[100];
+    scanf("%s",s);
+    scanf("%s",t);
+    int n = strlen(s);
+    int m = strlen(t);
+    
 
     int ** dp = (int**) malloc((n+1) * sizeof(int*));
     for(int i = 0 ; i < n+1; i++){
@@ -26,7 +31,7 @@ int main(){
         }
     }
 
-    cout << "Maximum LCS Length : " << dp[0][0] << "\n";
+    printf("Maximum LCS Length : %d \n",dp[0][0]);
 
     return 0;
 }
