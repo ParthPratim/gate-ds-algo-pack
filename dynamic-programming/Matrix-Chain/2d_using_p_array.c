@@ -69,7 +69,7 @@ int main(){
                 }
 
                 M[i][j] = min_value;
-                S[i][j] = min_k+1; // The 1 is added because in exam 1-based indexing is allowed, else the 1 is unecessary
+                S[i][j] = min_k; 
             }
 
             i++;
