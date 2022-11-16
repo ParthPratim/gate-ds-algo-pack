@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define max(a,b) (a>b ? a : b)
+
+int main(){
+    int n;
+    printf("Enter the number of elements in the array : ");
+    scanf("%d", &n);
+
+    int * arr = (int *) malloc(sizeof(int) * n);
+    int * dp = (int *) malloc(sizeof(int) * n);
+
+    for(int i = 0 ; i < n ; i++){
+        scanf("%d",&arr[i]);
+    }
+    
+
+    dp[0] = 1;
+    int max_LIS = 1;
+    for(int i = 1; i < n ; i++){
+        dp[i] = 1;
+        for(int j = i-1; j >= 0 ; j--){
+            if(arr[j] < arr[i] && arr[j]%2 != arr[i]%2 && dp[i] < dp[j] + 1){
+                dp[i] = dp[j] + 1;
+            }
+        }
+        max_LIS = max(max_LIS, dp[i]);
+    }
+
+    printf("Longest Increasing Subsequence : %d\n", max_LIS);
+
+    return 0;
+}
