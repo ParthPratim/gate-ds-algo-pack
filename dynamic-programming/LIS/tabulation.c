@@ -17,6 +17,7 @@ int main(){
     
 
     dp[0] = 1;
+    int max_LIS = 1;
     for(int i = 1; i < n ; i++){
         dp[i] = 1;
         for(int j = i-1; j >= 0 ; j--){
@@ -24,9 +25,10 @@ int main(){
                 dp[i] = dp[j] + 1;
             }
         }
+        max_LIS = max(max_LIS, dp[i]);
     }
 
-    printf("Longest Increasing Subsequence : %d\n", dp[n]);
+    printf("Longest Increasing Subsequence : %d\n", max_LIS);
 
 
     return 0;
