@@ -36,7 +36,14 @@ int main(){
         scanf("%d",&arr[i]);
     }
 
-    printf("Longest Increasing Subsequence : %d\n", MemoLIS(&dp,arr,n-1));
+    
+
+    int max_LIS = 0;
+    for(int i = 0 ; i < n ; i++){
+        max_LIS = max(max_LIS, MemoLIS(&dp,arr,i));
+    }
+
+    printf("Longest Increasing Subsequence : %d\n", max_LIS);
 
 
     return 0;
