@@ -8,7 +8,7 @@ typedef struct
 } Matrix;
 
 
-int MulOps(int r1, int m , int c2){
+inline int MulOps(int r1, int m , int c2){
     // Finds the number of multiplication operations to multiply two matrices of size "r1 x m" and "m x c2"
     return r1 * m * c2;
 }
@@ -40,11 +40,11 @@ int main(){
     int ** M, ** S;
     // declaring the M-Table and the S-Table.
 
-    M = (int**) malloc(n * sizeof(int**));
-    S = (int**) malloc(n * sizeof(int**));
+    M = (int**) malloc(n * sizeof(int*));
+    S = (int**) malloc(n * sizeof(int*));
     for(int i = 0 ; i < n ; i++){
-        M[i] = (int*) malloc(n * sizeof(int *));
-        S[i] = (int*) malloc(n * sizeof(int *));
+        M[i] = (int*) malloc(n * sizeof(int));
+        S[i] = (int*) malloc(n * sizeof(int));
     }
 
     //since, in Matrix chain multiplication, we fill the table diagonally

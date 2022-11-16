@@ -40,11 +40,11 @@ int main(){
     int ** M, ** S;
     // declaring the M-Table and the S-Table.
     // n+1 is taken so that we can do 1-based indexing from 1-to-N
-    M = (int**) malloc((n+1) * sizeof(int**));
-    S = (int**) malloc((n+1) * sizeof(int**));
+    M = (int**) malloc((n+1) * sizeof(int*));
+    S = (int**) malloc((n+1) * sizeof(int*));
     for(int i = 0 ; i < n+1 ; i++){
-        M[i] = (int*) malloc((n+1) * sizeof(int *));
-        S[i] = (int*) malloc((n+1) * sizeof(int *));
+        M[i] = (int*) malloc((n+1) * sizeof(int));
+        S[i] = (int*) malloc((n+1) * sizeof(int));
     }
 
     //since, in Matrix chain multiplication, we fill the table diagonally
