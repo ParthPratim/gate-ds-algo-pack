@@ -74,10 +74,8 @@ int main(){
 
             i++;
             j++;
-        }
-        
+        }       
     }
-
 
     printf("M-Table : \n");
     Print2DArray(&M,n);
@@ -86,7 +84,6 @@ int main(){
 
     printf("S-Table : \n");
     Print2DArray(&S,n);
-
 
     return 0;
 }
