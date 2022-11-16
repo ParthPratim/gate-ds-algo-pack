@@ -5,33 +5,30 @@
 #define max(a,b) (a>b ? a : b)
 
 int main(){
-    char s[100] , t[100];
-    scanf("%s",s);
-    scanf("%s",t);
-    int n = strlen(s);
-    int m = strlen(t);
+    int n;
+    printf("Enter the number of elements in the array : ");
+    scanf("%d", &n);
+
+    int * arr = (int *) malloc(sizeof(int) * n);
+    int * dp = (int *) malloc(sizeof(int) * n);
+    for(int i = 0 ; i < n ; i++){
+        scanf("%d",&arr[i]);
+    }
     
 
-    int ** dp = (int**) malloc((n+1) * sizeof(int*));
-    for(int i = 0 ; i < n+1; i++){
-        dp[i] = (int*) malloc((m+1) * sizeof(int));
-    }
-
-
-    for(int i = n-1; i >= 0 ; i--){
-        for(int j = m-1; j >=0 ; j--){
-            // i is ptr of string s
-            // j is ptr of string t
-            if(s[i] == t[j]){
-                dp[i][j] = dp[i+1][j+1] + 1; 
-            }
-            else{
-                dp[i][j] = max(dp[i+1][j], dp[i][j+1]);
+    dp[0] = 1;
+    int max_LIS = 1;
+    for(int i = 1; i < n ; i++){
+        dp[i] = 1;
+        for(int j = i-1; j >= 0 ; j--){
+            if(arr[j] == arr[i]-1 && dp[i] < dp[j] + 1){
+                dp[i] = dp[j] + 1;
             }
         }
+        max_LIS = max(max_LIS, dp[i]);
     }
 
-    printf("Maximum LCS Length : %d \n",dp[0][0]);
+    printf("Longest Increasing Subsequence : %d\n", max_LIS);
 
     return 0;
 }
